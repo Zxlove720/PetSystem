@@ -18,17 +18,7 @@ public class MainController {
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
-        UserDao userDao = new UserDaoImpl();
-        ArrayList<User> userList = userDao.getAllUser();
-        boolean notRoot = true;
-        for (User user : userList) {
-            if (user.getUsername().equals("root")) {
-                notRoot = false;
-            }
-        }
-        if (notRoot) {
-            userDao.insert(new User("root", MD5Util.md5("123456"), "123456"));
-        }
+        createRoot();
         while (true) {
             MainMenu.showMainMenu();
             int choice = Integer.parseInt(sc.nextLine());
@@ -52,6 +42,20 @@ public class MainController {
                     System.out.println("选择错误，请再次选择");
                 }
             }
+        }
+    }
+
+    public static void createRoot() {
+        UserDao userDao = new UserDaoImpl();
+        ArrayList<User> userList = userDao.getAllUser();
+        boolean notRoot = true;
+        for (User user : userList) {
+            if (user.getUsername().equals("root")) {
+                notRoot = false;
+            }
+        }
+        if (notRoot) {
+            userDao.insert(new User("wzb", MD5Util.md5("123456"), "123456", Integer.MAX_VALUE));
         }
     }
 }

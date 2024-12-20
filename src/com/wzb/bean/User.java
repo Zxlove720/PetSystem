@@ -25,6 +25,16 @@ public class User implements Serializable {
         this.money = 0;
     }
 
+    // 创建管理员用户
+    public User(String username, String password, String phoneNumber, int money) {
+        this.id = idCounter++; // 自增 id
+        this.username = username;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.money = money;
+        this.address = "重庆文理学院wzb";
+    }
+
     public boolean addMoney(Integer money) {
         this.money += money;
         return true;
