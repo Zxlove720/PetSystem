@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("当前登录用户信息为：");
         System.out.println("用户名：" + user.getUsername());
         System.out.println("账户余额为：" + user.getMoney());
+        System.out.println("地址为：" + user.getAddress());
         System.out.println();
     }
 
@@ -79,7 +80,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void changeAddress(User user) {
-        System.out.println("地址修改成功");
+        System.out.println("请输入用户的地址");
+        String address = sc.nextLine();
+        user.setAddress(address);
+        System.out.println("用户" + user.getUsername() + "的地址是" + user.getAddress());
+        userDao.saveUpdatedUserById(user);
     }
 
     @Override

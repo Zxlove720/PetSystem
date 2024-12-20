@@ -11,6 +11,8 @@ public class User implements Serializable {
     // 用户的账户余额
     private Integer money;
 
+    private String address;
+
     // 自动生成自增的 id
     private static int idCounter = 0;
 
@@ -69,5 +71,13 @@ public class User implements Serializable {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", money=" + money +
                 '}';
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
