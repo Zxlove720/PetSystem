@@ -1,8 +1,14 @@
 package com.wzb.controller;
 
+import com.wzb.bean.User;
+import com.wzb.dao.UserDao;
+import com.wzb.dao.impl.UserDaoImpl;
+import com.wzb.utils.md5.MD5Util;
 import com.wzb.utils.menu.MainMenu;
 import com.wzb.utils.wait.Wait;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -12,6 +18,17 @@ public class MainController {
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
+        UserDao userDao = new UserDaoImpl();
+        ArrayList<User> userList = userDao.getAllUser();
+        boolean notRoot = true;
+        for (User user : userList) {
+            if (user.getUsername().equals("root")) {
+                notRoot = false;
+            }
+        }
+        if (notRoot) {
+            userDao.insert(new User("root", MD5Util.md5("123456"), "123456"));
+        }
         while (true) {
             MainMenu.showMainMenu();
             int choice = Integer.parseInt(sc.nextLine());
