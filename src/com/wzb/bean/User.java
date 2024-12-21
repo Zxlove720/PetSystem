@@ -186,4 +186,13 @@ public class User implements Serializable {
                 ", updateTime=" + updateTime +
                 '}';
     }
+
+    public void showOrders() {
+        System.out.println("当前用户" + username + "的订单内容为");
+        for (int i = 0; i < orderList.size(); i++) {
+            System.out.println("这是第" + (i + 1) + "张订单");
+            System.out.println(orderList.get(i));
+        }
+    }
+
 }

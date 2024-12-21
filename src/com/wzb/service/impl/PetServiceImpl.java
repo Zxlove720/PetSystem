@@ -13,7 +13,7 @@ public class PetServiceImpl implements PetService {
     private final Scanner sc = new Scanner(System.in);
 
     @Override
-    public List<Pet> showAllPet() {
+    public List<Pet> getAllPet() {
         return petDao.getAllPet();
     }
 

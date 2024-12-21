@@ -1,23 +1,36 @@
 package com.wzb.bean;
 
+import com.wzb.service.PetService;
+import com.wzb.service.impl.PetServiceImpl;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Order implements Serializable {
-    private final Integer id;
+    private static final PetService petService = new PetServiceImpl();
+
     private final ArrayList<Integer> pets;
     private final Integer sum;
 
-    // 自动生成自增的 id
-    private static int idCounter = 0;
-
-    public Order(Integer id, ArrayList<Integer> pets, Integer sum) {
-        this.id = idCounter++;
+    public Order(ArrayList<Integer> pets, Integer sum) {
         this.pets = pets;
         this.sum = sum;
     }
 
-    public void showOrder() {
-        System.out.println("订单编号为" + this.id + "订单内容是" + this.pets + "总金额是" + this.sum);
+    public ArrayList<Integer> getPets() {
+        return pets;
+    }
+
+    @Override
+    public String toString() {
+        String result = "{Order: Pets{";
+        for (Integer id : pets) {
+            result = result + "{";
+            result += petService.getById(id);
+            result += "}";
+        }
+        result += "}, ";
+        result += "Sum{" + sum + "}}";
+        return result;
     }
 }

@@ -24,7 +24,7 @@ public class UserController {
                     break;
                 }
                 case 2: {
-                    System.out.println("浏览宠物");
+                    ShopController.shop(user);
                     break;
                 }
                 case 3: {

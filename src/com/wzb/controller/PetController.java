@@ -20,7 +20,7 @@ public class PetController {
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1: {
-                    List<Pet> petList = petService.showAllPet();
+                    List<Pet> petList = petService.getAllPet();
                     for (Pet pet : petList) {
                         System.out.println(pet);
                     }

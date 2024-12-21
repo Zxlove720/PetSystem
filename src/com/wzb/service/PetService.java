@@ -5,7 +5,7 @@ import com.wzb.bean.Pet;
 import java.util.List;
 
 public interface PetService {
-    List<Pet> showAllPet();
+    List<Pet> getAllPet();
 
     boolean insertPet();
 
