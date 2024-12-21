@@ -51,9 +51,10 @@ public class PetDaoImpl extends BaseDao implements PetDao {
     }
 
     @Override
-    public void deletePetById(int id) {
+    public boolean deletePetById(int id) {
         // 删除指定 ID 的用户
         pets.removeIf(pet -> pet.getId() == id);
         saveToFile(PET_FILE, pets);  // 删除后立刻保存
+        return true;
     }
 }

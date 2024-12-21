@@ -11,5 +11,5 @@ public interface PetDao {
 
     public void saveUpdatedPetById(Pet updatedPet);
 
-    public void deletePetById(int id);
+    public boolean deletePetById(int id);
 }

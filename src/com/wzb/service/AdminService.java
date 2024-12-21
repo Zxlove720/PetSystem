@@ -2,16 +2,18 @@ package com.wzb.service;
 
 import com.wzb.bean.User;
 
+import java.util.List;
+
 public interface AdminService {
-    void showAllUser();
+    List<User> showAllUser();
 
-    void deleteUser();
+    void deleteUserById(int id);
 
-    void banAUser();
+    void banAUser(int id);
 
-    void updateAUser();
+    void updateAUser(int id);
 
-    void getById();
+    User getById(int id);
 
     void showAdmin(User user);
 }

@@ -1,10 +1,12 @@
 package com.wzb.controller;
 
+import com.wzb.bean.Pet;
 import com.wzb.service.PetService;
 import com.wzb.service.impl.PetServiceImpl;
 import com.wzb.utils.menu.pet.PetMenu;
 import com.wzb.utils.wait.Wait;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class PetController {
@@ -18,7 +20,10 @@ public class PetController {
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1: {
-                    petService.showAllPet();
+                    List<Pet> petList = petService.showAllPet();
+                    for (Pet pet : petList) {
+                        System.out.println(pet);
+                    }
                     break;
                 }
                 case 2: {
@@ -26,15 +31,22 @@ public class PetController {
                     break;
                 }
                 case 3: {
-                    petService.deletePet();
+                    System.out.println("请输入想要删除的宠物id");
+                    int id = Integer.parseInt(sc.nextLine());
+                    petService.deletePet(id);
                     break;
                 }
                 case 4: {
-                    petService.updatePet();
+                    System.out.println("请输入想要更新的宠物id");
+                    int id = Integer.parseInt(sc.nextLine());
+                    petService.updatePet(id);
                     break;
                 }
                 case 5: {
-                    petService.getById();
+                    System.out.println("请输入想要查看的宠物id");
+                    int id = Integer.parseInt(sc.nextLine());
+                    Pet pet = petService.getById(id);
+                    System.out.println(pet);
                     break;
                 }
                 case 0: {

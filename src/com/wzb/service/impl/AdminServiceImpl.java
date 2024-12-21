@@ -15,31 +15,34 @@ public class AdminServiceImpl implements AdminService {
     private final Scanner sc = new Scanner(System.in);
 
     @Override
-    public void showAllUser() {
+    public List<User> showAllUser() {
         List<User> userList = userDao.getAllUser();
         for (User user : userList) {
             System.out.println(user);
         }
+        return userList;
     }
 
     @Override
-    public void deleteUser() {
-        System.out.println("请输入想要删除的用户id");
-        Integer id = Integer.parseInt(sc.nextLine());
+    public void deleteUserById(int id) {
         userDao.deleteUserById(id);  // 删除后立刻保存到文件
         System.out.println("删除成功");
     }
 
     @Override
-    public void banAUser() {
-        // 禁用用户逻辑
+    public void banAUser(int id) {
+        List<User> userList = userDao.getAllUser();
+        for (User user : userList) {
+            if (user.getId().equals(id)) {
+                user.setStatus(false);
+                userDao.saveUpdatedUserById(user);
+            }
+        }
     }
 
     @Override
-    public void updateAUser() {
+    public void updateAUser(int id) {
         List<User> userList = userDao.getAllUser();
-        System.out.println("请输入想要更新的用户id");
-        Integer id = Integer.parseInt(sc.nextLine());
         for (User user : userList) {
             if (user.getId().equals(id)) {
                 System.out.println("当前用户信息为：");
@@ -64,16 +67,14 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void getById() {
+    public User getById(int id) {
         List<User> userList = userDao.getAllUser();
-        System.out.println("请输入想要查看的用户id");
-        Integer id = Integer.parseInt(sc.nextLine());
         for (User user : userList) {
             if (user.getId().equals(id)) {
-                System.out.println(user);
-                break;
+                return user;
             }
         }
+        return null;
     }
 
     @Override

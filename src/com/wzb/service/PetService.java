@@ -1,14 +1,18 @@
 package com.wzb.service;
 
+import com.wzb.bean.Pet;
+
+import java.util.List;
+
 public interface PetService {
-    void showAllPet();
+    List<Pet> showAllPet();
 
     void insertPet();
 
-    void deletePet();
+    void deletePet(int id);
 
-    void updatePet();
+    void updatePet(int id);
 
-    void getById();
+    Pet getById(int id);
 
 }
