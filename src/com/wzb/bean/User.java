@@ -18,7 +18,7 @@ public class User implements Serializable {
 
     // 用户注册凭证：手机号注册
     public User(String username, String password, String phoneNumber) {
-        this.id = idCounter++; // 自增 id
+        this.id = ++idCounter; // 自增 id
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
@@ -27,7 +27,7 @@ public class User implements Serializable {
 
     // 创建管理员用户
     public User(String username, String password, String phoneNumber, int money) {
-        this.id = idCounter++; // 自增 id
+        this.id = 0; // 自增 id
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
@@ -80,6 +80,7 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", money=" + money +
+                ", address='" + address + '\'' +
                 '}';
     }
 

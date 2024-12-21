@@ -43,11 +43,9 @@ public class LoginServiceImpl implements LoginService {
                 } else {
                     System.out.println("error password");
                 }
-            } else {
-                System.out.println("username not found");
-                return null;
             }
         }
+        System.out.println("username not found");
         return null;
     }
 

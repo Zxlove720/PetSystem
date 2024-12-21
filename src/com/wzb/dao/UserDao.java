@@ -11,5 +11,5 @@ public interface UserDao {
 
     public void saveUpdatedUserById(User updatedUser);
 
-    public void deleteUserById(User deleteUser);
+    public void deleteUserById(int id);
 }

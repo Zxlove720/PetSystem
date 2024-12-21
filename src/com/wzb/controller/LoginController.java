@@ -20,10 +20,14 @@ public class LoginController {
             switch (choice) {
                 case 1: {
                     User user = userService.userLogin();
-                    if (user != null) {
-                        UserController.modifyUser(user);
+                    if (user == null) {
+                        System.out.println("登录失败，请重新登录");
+                    } else if (user.getId().equals(0)) {
+                        System.out.println("管理员：wzb，欢迎登录");
+                        AdminController.modifyUser(user);
                     } else {
-                        System.out.println("请重新登录");
+                        System.out.println(user.getUsername() + "欢迎登录");
+                        UserController.modifyUser(user);
                     }
                     break;
                 }

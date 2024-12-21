@@ -15,7 +15,6 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao = new UserDaoImpl();
     private final Scanner sc = new Scanner(System.in);
 
-
     @Override
     public User userLogin() {
         return login.login();
@@ -95,7 +94,7 @@ public class UserServiceImpl implements UserService {
         String answer = "我想注销" + user.getUsername();
         String input = sc.nextLine();
         if (answer.equals(input)) {
-            userDao.deleteUserById(user);
+            userDao.deleteUserById(user.getId());
             System.out.println("注销成功");
         } else {
             System.out.println("输入错误，注销账户失败");
