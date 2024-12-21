@@ -22,22 +22,63 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public void insertPet() {
-
-    }
-
-    @Override
-    public void deletePet(int id) {
-        if (petDao.deletePetById(id)) {
-            System.out.println("删除" + getById(id).getName() + "成功");
-        } else {
-            System.out.println("删除失败");
+    public boolean insertPet() {
+        System.out.println("请输入宠物的名字");
+        String name = sc.nextLine();
+        System.out.println("请输入宠物的年龄");
+        int age = Integer.parseInt(sc.nextLine());
+        System.out.println("请输入宠物的体重");
+        double weight = Double.parseDouble(sc.nextLine());
+        System.out.println("请输入宠物爱吃的食物");
+        String food = sc.nextLine();
+        System.out.println("请输入宠物的价格");
+        int price = Integer.parseInt(sc.nextLine());
+        System.out.println("请选择宠物种类是狗还是猫");
+        System.out.println("1.狗             2.猫");
+        int brand = Integer.parseInt(sc.nextLine());
+        if (brand != 1 && brand != 2) {
+            System.out.println("种类错误");
+            return false;
         }
+        petDao.insert(new Pet(name, age, weight, food, price, brand));
+        return true;
     }
 
     @Override
-    public void updatePet(int id) {
+    public boolean deletePet(int id) {
+        petDao.deletePetById(id);
+        return true;
+    }
 
+    @Override
+    public boolean updatePet(int id) {
+        List<Pet> petList = petDao.getAllPet();
+        for (Pet pet : petList) {
+            if (pet.getId().equals(id)) {
+                System.out.println("当前宠物用户信息为：");
+                System.out.println(pet);
+
+                System.out.println("请输入修改后宠物的名字");
+                String name = sc.nextLine();
+                pet.setName(name);
+                System.out.println("请输入修改后宠物的年龄");
+                int age = Integer.parseInt(sc.nextLine());
+                pet.setAge(age);
+                System.out.println("请输入修改后宠物的体重");
+                double weight = Double.parseDouble(sc.nextLine());
+                pet.setWeight(weight);
+                System.out.println("请输入修改后宠物爱吃的食物");
+                String food = sc.nextLine();
+                pet.setFood(food);
+                System.out.println("请输入修改后宠物的价格");
+                int price = Integer.parseInt(sc.nextLine());
+                // 种类一般不改
+                pet.setPrice(price);
+                petDao.saveUpdatedPetById(pet);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

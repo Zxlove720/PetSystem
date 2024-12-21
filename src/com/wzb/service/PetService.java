@@ -7,11 +7,11 @@ import java.util.List;
 public interface PetService {
     List<Pet> showAllPet();
 
-    void insertPet();
+    boolean insertPet();
 
-    void deletePet(int id);
+    boolean deletePet(int id);
 
-    void updatePet(int id);
+    boolean updatePet(int id);
 
     Pet getById(int id);
 

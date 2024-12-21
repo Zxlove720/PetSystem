@@ -48,6 +48,7 @@ public class AdminController {
                     System.out.println("请输入想要查看的用户id");
                     int id = Integer.parseInt(sc.nextLine());
                     User u = adminService.getById(id);
+                    System.out.println(u);
                     break;
                 }
                 case 6: {

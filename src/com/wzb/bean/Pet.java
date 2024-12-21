@@ -1,22 +1,25 @@
 package com.wzb.bean;
 
 public class Pet {
-    private Integer id;
+    private final Integer id;
     private String name;
     private Integer age;
     private Double weight;
-    private String Food;
+    private String food;
     private Integer price;
+    // 用于标识宠物的种类，1是狗、2是猫  后期扩展可以将其变为String类型
+    private Integer brand;
 
     private static Integer idCounter = 0;
 
-    public Pet(String name, Integer age, Double weight, String food, Integer price) {
+    public Pet(String name, Integer age, Double weight, String food, Integer price, Integer brand) {
         this.id = idCounter++;
         this.name = name;
         this.age = age;
         this.weight = weight;
-        Food = food;
+        this.food = food;
         this.price = price;
+        this.brand = brand;
     }
 
     public String getName() {
@@ -44,11 +47,11 @@ public class Pet {
     }
 
     public String getFood() {
-        return Food;
+        return food;
     }
 
     public void setFood(String food) {
-        Food = food;
+        this.food = food;
     }
 
     public Integer getPrice() {
@@ -63,6 +66,14 @@ public class Pet {
         return id;
     }
 
+    public Integer getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Integer brand) {
+        this.brand = brand;
+    }
+
     @Override
     public String toString() {
         return "Pet{" +
@@ -70,7 +81,7 @@ public class Pet {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
-                ", Food='" + Food + '\'' +
+                ", food='" + food + '\'' +
                 ", price=" + price +
                 '}';
     }

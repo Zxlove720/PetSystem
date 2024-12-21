@@ -27,19 +27,31 @@ public class PetController {
                     break;
                 }
                 case 2: {
-                    petService.insertPet();
+                    if (petService.insertPet()) {
+                        System.out.println("插入成功");
+                    } else {
+                        System.out.println("插入失败");
+                    }
                     break;
                 }
                 case 3: {
                     System.out.println("请输入想要删除的宠物id");
                     int id = Integer.parseInt(sc.nextLine());
-                    petService.deletePet(id);
+                    if (petService.deletePet(id)) {
+                        System.out.println("删除成功");
+                    } else {
+                        System.out.println("删除失败");
+                    }
                     break;
                 }
                 case 4: {
                     System.out.println("请输入想要更新的宠物id");
                     int id = Integer.parseInt(sc.nextLine());
-                    petService.updatePet(id);
+                    if (petService.updatePet(id)) {
+                        System.out.println("更新成功");
+                    } else {
+                        System.out.println("更新失败");
+                    }
                     break;
                 }
                 case 5: {

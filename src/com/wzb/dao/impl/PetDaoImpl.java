@@ -16,9 +16,9 @@ public class PetDaoImpl extends BaseDao implements PetDao {
         pets = loadFromFile(PET_FILE); // 每次加载最新数据
         // 如果文件为空，添加一猫一狗
         if (pets.isEmpty()) {
-            Pet king = new Pet("wzb-pet", 10, 70.0, "food", Integer.MAX_VALUE);
-            Pet dog = new Dog("旺财", 2, 30.0, "骨头", 500);
-            Pet cat = new Cat("哈基米", 1, 20.0, "鱼", 500);
+            Pet king = new Pet("wzb-pet", 10, 70.0, "food", Integer.MAX_VALUE, 1);
+            Pet dog = new Dog("旺财", 2, 30.0, "骨头", 500, 1);
+            Pet cat = new Cat("哈基米", 1, 20.0, "鱼", 500, 2);
             pets.add(king);
             pets.add(dog);
             pets.add(cat);
