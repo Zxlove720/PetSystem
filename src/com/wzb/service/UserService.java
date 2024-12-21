@@ -12,11 +12,11 @@ public interface UserService {
 
     void showUser(User user);
 
-    void reCharge(User user);
+    boolean reCharge(User user);
 
-    void changePassword(User user);
+    boolean changePassword(User user);
 
-    void changeAddress(User user);
+    boolean changeAddress(User user);
 
-    void deleteMyself(User user);
+    boolean deleteMyself(User user);
 }

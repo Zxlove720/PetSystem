@@ -12,12 +12,21 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     private static final String USER_FILE = "users.dat";
     private ArrayList<User> users;
 
+    public Integer getNextId() {
+        users = loadFromFile(USER_FILE);
+        if (users.isEmpty()) {
+            return 0;  // 如果没有宠物，ID 从 1 开始
+        } else {
+            return users.get(users.size() - 1).getId() + 1;
+        }
+    }
+
     // 构造函数：初始化用户数据
     public UserDaoImpl() {
         users = loadFromFile(USER_FILE); // 每次加载最新数据
         // 如果文件为空，添加管理员账户
         if (users.isEmpty()) {
-            User admin = new User("wzb", MD5Util.md5("123456"), "123456", Integer.MAX_VALUE);
+            User admin = new User(getNextId(), "wzb", MD5Util.md5("123456"), "123456", Integer.MAX_VALUE);
             users.add(admin);
             saveToFile(USER_FILE, users);  // 保存管理员账户到文件
         }

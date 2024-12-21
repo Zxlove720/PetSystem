@@ -61,7 +61,7 @@ public class LoginServiceImpl implements LoginService {
         String realPassword = MD5Util.md5(password);
         System.out.println("please input your phoneNumber");
         String phoneNumber = sc.nextLine();
-        User user = new User(username, realPassword, phoneNumber);
+        User user = new User(userDao.getNextId(), username, realPassword, phoneNumber);
         userDao.insert(user);
         return true;
     }

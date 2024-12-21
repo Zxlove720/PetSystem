@@ -28,22 +28,37 @@ public class UserController {
                     break;
                 }
                 case 3: {
-                    userService.reCharge(user);
+                    if (userService.reCharge(user)) {
+                        System.out.println("充值成功");
+                    } else {
+                        System.out.println("充值失败");
+                    }
                     break;
                 }
                 case 4: {
-                    userService.changePassword(user);
+                    if (userService.changePassword(user)) {
+                        System.out.println("修改密码成功");
+                    } else {
+                        System.out.println("修改密码失败");
+                    }
                     break;
                 }
                 case 5: {
-                    userService.changeAddress(user);
+                    if (userService.changeAddress(user)) {
+                        System.out.println("修改地址成功");
+                    } else {
+                        System.out.println("修改地址失败");
+                    }
                     break;
                 }
                 case 6: {
-                    userService.deleteMyself(user);
-                    System.out.print("账户已注销，正在回到登录界面");
-                    Wait.waitMoments();
-                    flag = false;
+                    if (userService.deleteMyself(user)) {
+                        System.out.print("账户已注销，正在回到登录界面");
+                        Wait.waitMoments();
+                        flag = false;
+                    } else {
+                        System.out.println("账户注销失败");
+                    }
                     break;
                 }
                 case 0: {

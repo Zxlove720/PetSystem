@@ -31,12 +31,10 @@ public class User implements Serializable {
     // 修改时间
     private LocalDateTime updateTime;
 
-    // 自动生成自增的 id
-    private static int idCounter = 0;
 
     // 用户注册凭证：手机号注册
-    public User(String username, String password, String phoneNumber) {
-        this.id = ++idCounter; // 自增 id
+    public User(Integer id, String username, String password, String phoneNumber) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
@@ -58,8 +56,8 @@ public class User implements Serializable {
     }
 
     // 创建管理员用户
-    public User(String username, String password, String phoneNumber, int money) {
-        this.id = 0; // 自增 id
+    public User(Integer id, String username, String password, String phoneNumber, int money) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;

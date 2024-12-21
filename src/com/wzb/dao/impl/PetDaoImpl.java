@@ -1,7 +1,5 @@
 package com.wzb.dao.impl;
 
-import com.wzb.bean.Cat;
-import com.wzb.bean.Dog;
 import com.wzb.bean.Pet;
 import com.wzb.dao.BaseDao;
 import com.wzb.dao.PetDao;
@@ -15,7 +13,7 @@ public class PetDaoImpl extends BaseDao implements PetDao {
     public int getNextId() {
         pets = loadFromFile(PET_FILE);
         if (pets.isEmpty()) {
-            return 1;  // 如果没有宠物，ID 从 1 开始
+            return 0;
         } else {
             return pets.get(pets.size() - 1).getId() + 1;
         }
