@@ -21,13 +21,17 @@ public class LoginController {
                 case 1: {
                     User user = userService.userLogin();
                     if (user == null) {
-                        System.out.println("登录失败，请重新登录");
+                        System.out.println("用户不存在，登录失败，请重新登录");
                     } else if (user.getId().equals(0)) {
                         System.out.println("管理员：wzb，欢迎登录");
                         AdminController.modifyUser(user);
                     } else {
-                        System.out.println(user.getUsername() + "欢迎登录");
-                        UserController.modifyUser(user);
+                        if (user.getStatus()) {
+                            System.out.println(user.getUsername() + "欢迎登录");
+                            UserController.modifyUser(user);
+                        } else {
+                            System.out.println("用户被锁定，不可登录");
+                        }
                     }
                     break;
                 }

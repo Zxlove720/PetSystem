@@ -30,7 +30,8 @@ public class AdminServiceImpl implements AdminService {
         List<User> userList = userDao.getAllUser();
         for (User user : userList) {
             if (user.getId().equals(id)) {
-                user.setStatus(false);
+                // 用户若不可用，则改为可用，可用则改为不可用
+                user.setStatus(!user.getStatus());
                 userDao.saveUpdatedUserById(user);
                 return true;
             }
