@@ -1,8 +1,9 @@
 package com.wzb.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Order {
+public class Order implements Serializable {
     private final Integer id;
     private final ArrayList<Integer> pets;
     private final Integer sum;

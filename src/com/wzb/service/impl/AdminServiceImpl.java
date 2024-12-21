@@ -16,32 +16,30 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<User> showAllUser() {
-        List<User> userList = userDao.getAllUser();
-        for (User user : userList) {
-            System.out.println(user);
-        }
-        return userList;
+        return userDao.getAllUser();
     }
 
     @Override
-    public void deleteUserById(int id) {
+    public boolean deleteUserById(int id) {
         userDao.deleteUserById(id);  // 删除后立刻保存到文件
-        System.out.println("删除成功");
+        return true;
     }
 
     @Override
-    public void banAUser(int id) {
+    public boolean changeUserStatus(int id) {
         List<User> userList = userDao.getAllUser();
         for (User user : userList) {
             if (user.getId().equals(id)) {
                 user.setStatus(false);
                 userDao.saveUpdatedUserById(user);
+                return true;
             }
         }
+        return false;
     }
 
     @Override
-    public void updateAUser(int id) {
+    public boolean updateAUser(int id) {
         List<User> userList = userDao.getAllUser();
         for (User user : userList) {
             if (user.getId().equals(id)) {
@@ -60,10 +58,10 @@ public class AdminServiceImpl implements AdminService {
                 String address = sc.nextLine();
                 user.setAddress(address);
                 userDao.saveUpdatedUserById(user);  // 更新后立刻保存
-                System.out.println("修改成功");
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     @Override

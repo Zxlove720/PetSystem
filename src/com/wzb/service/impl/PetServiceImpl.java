@@ -14,11 +14,7 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public List<Pet> showAllPet() {
-        List<Pet> petList = petDao.getAllPet();
-        for (Pet pet : petList) {
-            System.out.println(pet);
-        }
-        return petList;
+        return petDao.getAllPet();
     }
 
     @Override
@@ -40,7 +36,7 @@ public class PetServiceImpl implements PetService {
             System.out.println("种类错误");
             return false;
         }
-        petDao.insert(new Pet(name, age, weight, food, price, brand));
+        petDao.insert(new Pet(petDao.getNextId(), name, age, weight, food, price, brand));
         return true;
     }
 

@@ -1,25 +1,30 @@
 package com.wzb.bean;
 
-public class Pet {
+import java.io.Serializable;
+
+public class Pet implements Serializable {
     private final Integer id;
     private String name;
     private Integer age;
     private Double weight;
     private String food;
     private Integer price;
-    // 用于标识宠物的种类，1是狗、2是猫  后期扩展可以将其变为String类型
     private Integer brand;
 
-    private static Integer idCounter = 0;
-
-    public Pet(String name, Integer age, Double weight, String food, Integer price, Integer brand) {
-        this.id = idCounter++;
+    // 通过构造器传入 ID，而不是通过静态初始化获取
+    public Pet(Integer id, String name, Integer age, Double weight, String food, Integer price, Integer brand) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.food = food;
         this.price = price;
         this.brand = brand;
+    }
+
+    // Getter 和 Setter 方法
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
@@ -60,10 +65,6 @@ public class Pet {
 
     public void setPrice(Integer price) {
         this.price = price;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public Integer getBrand() {

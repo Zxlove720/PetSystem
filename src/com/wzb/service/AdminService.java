@@ -7,11 +7,11 @@ import java.util.List;
 public interface AdminService {
     List<User> showAllUser();
 
-    void deleteUserById(int id);
+    boolean deleteUserById(int id);
 
-    void banAUser(int id);
+    boolean changeUserStatus(int id);
 
-    void updateAUser(int id);
+    boolean updateAUser(int id);
 
     User getById(int id);
 

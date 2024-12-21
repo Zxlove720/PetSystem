@@ -2,8 +2,8 @@ package com.wzb.bean;
 
 public class Cat extends Pet{
 
-    public Cat(String name, Integer age, Double weight, String food, Integer price, Integer brand) {
-        super(name, age, weight, food, price, brand);
+    public Cat(Integer id, String name, Integer age, Double weight, String food, Integer price, Integer brand) {
+        super(id, name, age, weight, food, price, brand);
     }
 
     public void catchMouse() {

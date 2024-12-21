@@ -1,8 +1,8 @@
 package com.wzb.bean;
 
 public class Dog extends Pet{
-    public Dog(String name, Integer age, Double weight, String food, Integer price, Integer brand) {
-        super(name, age, weight, food, price, brand);
+    public Dog(Integer id, String name, Integer age, Double weight, String food, Integer price, Integer brand) {
+        super(id, name, age, weight, food, price, brand);
     }
 
     public void fight() {

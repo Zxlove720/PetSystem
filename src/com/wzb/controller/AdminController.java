@@ -29,19 +29,31 @@ public class AdminController {
                 case 2: {
                     System.out.println("请输入想要删除的用户id");
                     int id = Integer.parseInt(sc.nextLine());
-                    adminService.deleteUserById(id);
+                    if (adminService.deleteUserById(id)) {
+                        System.out.println("删除成功");
+                    } else {
+                        System.out.println("删除失败");
+                    }
                     break;
                 }
                 case 3: {
-                    System.out.println("请输入想要禁用的用户id");
+                    System.out.println("请输入想要更改状态的用户id");
                     int id = Integer.parseInt(sc.nextLine());
-                    adminService.banAUser(id);
+                    if (adminService.changeUserStatus(id)) {
+                        System.out.println("更改状态成功");
+                    } else {
+                        System.out.println("更改状态失败");
+                    }
                     break;
                 }
                 case 4: {
                     System.out.println("请输入想要更新的用户id");
                     int id = Integer.parseInt(sc.nextLine());
-                    adminService.updateAUser(id);
+                    if (adminService.updateAUser(id)) {
+                        System.out.println("用户更新成功");
+                    } else {
+                        System.out.println("用户更新失败");
+                    }
                     break;
                 }
                 case 5: {
