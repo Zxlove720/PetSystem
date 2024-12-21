@@ -29,6 +29,15 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
+    public void showShopCar(User user) {
+        ArrayList<Integer> shopCar = user.getShopCar();
+        System.out.println(user.getUsername() + "的购物车的内容是");
+        for (Integer id : shopCar) {
+            System.out.println(petService.getById(id));
+        }
+    }
+
+    @Override
     public boolean addShopCar(User user) {
         System.out.println("目前有的宠物如下：");
         showAllPet();

@@ -31,6 +31,10 @@ public class ShopController {
                     break;
                 }
                 case 3: {
+                    shopService.showShopCar(user);
+                    break;
+                }
+                case 4: {
                     if (shopService.pay(user)) {
                         System.out.println("支付成功");
                     } else {
