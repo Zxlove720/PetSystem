@@ -5,6 +5,7 @@ import com.wzb.dao.BaseDao;
 import com.wzb.dao.PetDao;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PetDaoImpl extends BaseDao implements PetDao {
     private static final String PET_FILE = "pets.dat";
@@ -23,8 +24,10 @@ public class PetDaoImpl extends BaseDao implements PetDao {
         pets = loadFromFile(PET_FILE); // 每次加载最新数据
         // 如果文件为空，添加一猫一狗
         if (pets.isEmpty()) {
-            Pet king = new Pet(getNextId(), "wzb-pet", 10, 70.0, "food", Integer.MAX_VALUE, 1);
-            pets.add(king);
+            Pet king = new Pet(0, "wzb-pet", 10, 70.0, "food", Integer.MAX_VALUE, 1);
+            Pet dog = new Pet(1, "旺财", 2, 20.0, "bone", 500, 1);
+            Pet cat = new Pet(2, "哈基米", 1, 15.0, "fish", 500, 2);
+            Collections.addAll(pets, king, dog, cat);
             saveToFile(PET_FILE, pets);
         }
     }

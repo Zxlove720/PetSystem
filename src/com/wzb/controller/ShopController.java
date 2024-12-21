@@ -4,6 +4,7 @@ import com.wzb.bean.User;
 import com.wzb.service.ShopService;
 import com.wzb.service.ShopServiceImpl;
 import com.wzb.utils.menu.shop.ShopMenu;
+import com.wzb.utils.wait.Wait;
 
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class ShopController {
     private static final Scanner sc = new Scanner(System.in);
     private static final ShopService shopService = new ShopServiceImpl();
 
-    public static void shop(User user) {
+    public static void shop(User user) throws InterruptedException {
         boolean flag = true;
         while (flag) {
             ShopMenu.showShopMenu();
@@ -38,11 +39,16 @@ public class ShopController {
                     break;
                 }
                 case 0: {
-
+                    System.out.println("正在返回上一级");
+                    Thread.sleep(500);
+                    System.out.print("");
+                    Wait.waitMoments();
+                    System.out.println("成功返回");
+                    flag = false;
                     break;
                 }
                 default: {
-
+                    System.out.println("选择错误，请重新选择");
                 }
             }
         }

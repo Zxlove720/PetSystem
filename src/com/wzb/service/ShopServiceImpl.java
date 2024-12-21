@@ -38,6 +38,10 @@ public class ShopServiceImpl implements ShopService {
         shopCar.add(id);
         user.setShopCar(shopCar);
         userDao.saveUpdatedUserById(user);
+        System.out.println("现在购物车中有：");
+        for (Integer i : shopCar) {
+            petService.getById(i);
+        }
         return true;
     }
 
@@ -51,7 +55,7 @@ public class ShopServiceImpl implements ShopService {
             sum += petService.getById(id).getPrice();
         }
         if (user.getMoney() > sum) {
-            System.out.println("账户余额重铸，请输入登录密码确认支付");
+            System.out.println("账户余额充足(" + user.getMoney() + ")，请输入登录密码确认支付");
             String password = sc.nextLine();
             if (MD5Util.md5(password).equals(user.getPassword())) {
                 ArrayList<Order> orderList = user.getOrderList();
@@ -66,6 +70,7 @@ public class ShopServiceImpl implements ShopService {
                 user.setShopCar(shopCar);
                 user.setOrderList(orderList);
                 user.setPetList(petList);
+                user.setMoney(user.getMoney() - sum);
                 userDao.saveUpdatedUserById(user);
                 return true;
             } else {
