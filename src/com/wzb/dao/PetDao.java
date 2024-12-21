@@ -1,0 +1,15 @@
+package com.wzb.dao;
+
+import com.wzb.bean.Pet;
+
+import java.util.ArrayList;
+
+public interface PetDao {
+    void insert(Pet pet);
+
+    ArrayList<Pet> getAllPet();
+
+    public void saveUpdatedPetById(Pet updatedPet);
+
+    public void deletePetById(int id);
+}

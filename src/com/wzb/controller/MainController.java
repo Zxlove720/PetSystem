@@ -21,7 +21,7 @@ public class MainController {
                     break;
                 }
                 case 2: {
-                    System.out.println("宠物开发中");
+                    PetController.modifyPet();
                     break;
                 }
                 case 0: {

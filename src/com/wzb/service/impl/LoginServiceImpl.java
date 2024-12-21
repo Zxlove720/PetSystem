@@ -39,9 +39,11 @@ public class LoginServiceImpl implements LoginService {
                         return user;
                     } else {
                         System.out.println("error captcha");
+                        return null;
                     }
                 } else {
                     System.out.println("error password");
+                    return null;
                 }
             }
         }

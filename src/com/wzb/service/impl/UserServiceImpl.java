@@ -38,11 +38,12 @@ public class UserServiceImpl implements UserService {
     public void reCharge(User user) {
         System.out.println(user.getUsername() + "的账户余额是" + user.getMoney());
         System.out.println("请输入想要充值的金额-->");
+
         int money = Integer.parseInt(sc.nextLine());
         user.addMoney(money);
         System.out.println("充值成功");
         System.out.println(user.getUsername() + "的账户余额是" + user.getMoney());
-        userDao.saveUpdatedUserById(user);
+        userDao.saveUpdatedUserById(user);  // 更新后立刻保存
     }
 
     @Override
@@ -63,7 +64,7 @@ public class UserServiceImpl implements UserService {
                 if (p.equals(password)) {
                     String realPassword = MD5Util.md5(password);
                     user.setPassword(realPassword);
-                    userDao.saveUpdatedUserById(user);
+                    userDao.saveUpdatedUserById(user);  // 更新后立刻保存
                     System.out.println("密码修改成功");
                 } else {
                     System.out.println("两次密码不一致，修改失败");
@@ -74,7 +75,6 @@ public class UserServiceImpl implements UserService {
         } else {
             System.out.println("电话不匹配，修改密码失败");
         }
-
     }
 
     @Override
@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService {
         String address = sc.nextLine();
         user.setAddress(address);
         System.out.println("用户" + user.getUsername() + "的地址是" + user.getAddress());
-        userDao.saveUpdatedUserById(user);
+        userDao.saveUpdatedUserById(user);  // 更新后立刻保存
     }
 
     @Override
@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService {
         String answer = "我想注销" + user.getUsername();
         String input = sc.nextLine();
         if (answer.equals(input)) {
-            userDao.deleteUserById(user.getId());
+            userDao.deleteUserById(user.getId());  // 删除后立刻保存
             System.out.println("注销成功");
         } else {
             System.out.println("输入错误，注销账户失败");

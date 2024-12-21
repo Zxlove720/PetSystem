@@ -14,7 +14,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
     // 构造函数：初始化用户数据
     public UserDaoImpl() {
-        users = loadFromFile(USER_FILE);
+        users = loadFromFile(USER_FILE); // 每次加载最新数据
         // 如果文件为空，添加管理员账户
         if (users.isEmpty()) {
             User admin = new User("wzb", MD5Util.md5("123456"), "123456", Integer.MAX_VALUE);
@@ -31,6 +31,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
     @Override
     public ArrayList<User> getAllUser() {
+        users = loadFromFile(USER_FILE);  // 每次获取都从文件重新加载
         return users;
     }
 

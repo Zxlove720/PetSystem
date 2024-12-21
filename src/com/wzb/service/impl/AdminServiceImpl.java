@@ -24,15 +24,15 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void deleteUser() {
-        System.out.println("请输入想要查看的用户id");
+        System.out.println("请输入想要删除的用户id");
         Integer id = Integer.parseInt(sc.nextLine());
-        userDao.deleteUserById(id);
+        userDao.deleteUserById(id);  // 删除后立刻保存到文件
         System.out.println("删除成功");
     }
 
     @Override
     public void banAUser() {
-
+        // 禁用用户逻辑
     }
 
     @Override
@@ -56,7 +56,7 @@ public class AdminServiceImpl implements AdminService {
                 System.out.println("请输入修改后的用户地址");
                 String address = sc.nextLine();
                 user.setAddress(address);
-                userDao.saveUpdatedUserById(user);
+                userDao.saveUpdatedUserById(user);  // 更新后立刻保存
                 System.out.println("修改成功");
                 break;
             }
