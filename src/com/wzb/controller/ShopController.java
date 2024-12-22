@@ -2,7 +2,7 @@ package com.wzb.controller;
 
 import com.wzb.bean.User;
 import com.wzb.service.ShopService;
-import com.wzb.service.ShopServiceImpl;
+import com.wzb.service.impl.ShopServiceImpl;
 import com.wzb.utils.menu.shop.ShopMenu;
 import com.wzb.utils.wait.Wait;
 

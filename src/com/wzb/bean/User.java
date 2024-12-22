@@ -1,11 +1,16 @@
 package com.wzb.bean;
 
+import com.wzb.service.PetService;
+import com.wzb.service.impl.PetServiceImpl;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class User implements Serializable {
+    private final PetService petService = new PetServiceImpl();
+
     // id作为用户的唯一标识符
     private final Integer id;
     // 用户名
@@ -171,6 +176,11 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
+        ArrayList<Pet> pets = new ArrayList<>();
+        for (Integer id : petList) {
+            pets.add(petService.getById(id));
+        }
+
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
@@ -179,7 +189,7 @@ public class User implements Serializable {
                 ", money=" + money +
                 ", address='" + address + '\'' +
                 ", status=" + status +
-                ", petList=" + petList +
+                ", petList=" + pets +
                 ", shopCar=" + shopCar +
                 ", orderList=" + orderList +
                 ", registerDate=" + registerDate +

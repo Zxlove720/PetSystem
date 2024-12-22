@@ -1,4 +1,4 @@
-package com.wzb.service;
+package com.wzb.service.impl;
 
 import com.wzb.bean.Order;
 import com.wzb.bean.Pet;
@@ -7,7 +7,8 @@ import com.wzb.dao.PetDao;
 import com.wzb.dao.UserDao;
 import com.wzb.dao.impl.PetDaoImpl;
 import com.wzb.dao.impl.UserDaoImpl;
-import com.wzb.service.impl.PetServiceImpl;
+import com.wzb.service.PetService;
+import com.wzb.service.ShopService;
 import com.wzb.utils.md5.MD5Util;
 
 import java.util.ArrayList;
