@@ -1,17 +1,21 @@
 package com.wzb.service.impl;
 
+import com.wzb.bean.Pet;
 import com.wzb.bean.User;
 import com.wzb.dao.UserDao;
 import com.wzb.dao.impl.UserDaoImpl;
 import com.wzb.service.LoginService;
+import com.wzb.service.PetService;
 import com.wzb.service.UserService;
 import com.wzb.utils.captcha.CaptchaUtils;
 import com.wzb.utils.md5.MD5Util;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserServiceImpl implements UserService {
     private final LoginService login = new LoginServiceImpl();
+    private final PetService petService = new PetServiceImpl();
     private final UserDao userDao = new UserDaoImpl();
     private final Scanner sc = new Scanner(System.in);
 
@@ -31,6 +35,13 @@ public class UserServiceImpl implements UserService {
         System.out.println("用户名：" + user.getUsername());
         System.out.println("账户余额为：" + user.getMoney());
         System.out.println("地址为：" + user.getAddress());
+        ArrayList<Pet> petList = new ArrayList<>();
+        ArrayList<Integer> petIdList = user.getPetList();
+        for (Integer id : petIdList) {
+            petList.add(petService.getById(id));
+        }
+        System.out.println("该用户的宠物有：" + petList);
+        System.out.println("该用户的订单有：" + user.getOrderList());
         System.out.println();
     }
 
