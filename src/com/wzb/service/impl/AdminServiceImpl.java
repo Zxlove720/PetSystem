@@ -33,6 +33,7 @@ public class AdminServiceImpl implements AdminService {
             if (user.getId().equals(id)) {
                 // 用户若不可用，则改为可用，可用则改为不可用
                 user.setStatus(!user.getStatus());
+                user.setUpdateTime(LocalDateTime.now());
                 userDao.saveUpdatedUserById(user);
                 return true;
             }

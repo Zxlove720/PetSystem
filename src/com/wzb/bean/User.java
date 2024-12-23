@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class User implements Serializable {
-    private final PetService petService = new PetServiceImpl();
+    private final transient PetService petService = new PetServiceImpl();
 
     // id作为用户的唯一标识符
     private final Integer id;
@@ -176,20 +176,16 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        ArrayList<Pet> pets = new ArrayList<>();
-        for (Integer id : petList) {
-            pets.add(petService.getById(id));
-        }
-
         return "User{" +
-                "id=" + id +
+                "petService=" + petService +
+                ", id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", money=" + money +
                 ", address='" + address + '\'' +
                 ", status=" + status +
-                ", petList=" + pets +
+                ", petList=" + petList +
                 ", shopCar=" + shopCar +
                 ", orderList=" + orderList +
                 ", registerDate=" + registerDate +
