@@ -10,6 +10,8 @@ public class Pet implements Serializable {
     private String food;
     private Integer price;
     private Integer brand;
+    // 此状态代表宠物是否已经售出
+    private Boolean status;
 
     // 通过构造器传入 ID，而不是通过静态初始化获取
     public Pet(Integer id, String name, Integer age, Double weight, String food, Integer price, Integer brand) {
@@ -20,6 +22,7 @@ public class Pet implements Serializable {
         this.food = food;
         this.price = price;
         this.brand = brand;
+        this.status = true;
     }
 
     // Getter 和 Setter 方法
@@ -75,6 +78,14 @@ public class Pet implements Serializable {
         this.brand = brand;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Pet{" +
@@ -84,6 +95,8 @@ public class Pet implements Serializable {
                 ", weight=" + weight +
                 ", food='" + food + '\'' +
                 ", price=" + price +
+                ", brand=" + brand +
+                ", status=" + status +
                 '}';
     }
 }

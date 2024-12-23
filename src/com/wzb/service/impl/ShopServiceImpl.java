@@ -25,7 +25,9 @@ public class ShopServiceImpl implements ShopService {
     public void showAllPet() {
         ArrayList<Pet> petList = petDao.getAllPet();
         for (Pet pet : petList) {
-            System.out.println(pet);
+            if (pet.getStatus()) {
+                System.out.println(pet);
+            }
         }
     }
 
@@ -71,8 +73,10 @@ public class ShopServiceImpl implements ShopService {
                 ArrayList<Order> orderList = user.getOrderList();
                 ArrayList<Integer> petList = new ArrayList<>();
                 for (Integer id : shopCar) {
-                    petService.deletePet(id);
+                    Pet pet = petService.getById(id);
+                    pet.setStatus(false);
                     petList.add(id);
+                    petDao.saveUpdatedPetById(pet);
                 }
                 Order order = new Order(petList, sum);
                 orderList.add(order);
