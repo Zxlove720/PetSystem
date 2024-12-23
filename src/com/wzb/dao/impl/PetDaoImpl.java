@@ -22,12 +22,14 @@ public class PetDaoImpl extends BaseDao implements PetDao {
 
     public PetDaoImpl() {
         pets = loadFromFile(PET_FILE); // 每次加载最新数据
-        // 如果文件为空，添加一猫一狗
+        // 如果文件为空，添加一些初始的宠物
         if (pets.isEmpty()) {
             Pet king = new Pet(0, "wzb-pet", 10, 70.0, "food", Integer.MAX_VALUE, 1);
             Pet dog = new Pet(1, "旺财", 2, 20.0, "bone", 500, 1);
-            Pet cat = new Pet(2, "哈基米", 1, 15.0, "fish", 500, 2);
-            Collections.addAll(pets, king, dog, cat);
+            Pet dog1 = new Pet(2, "小黑", 3, 25.0, "bone", 500, 1);
+            Pet cat = new Pet(3, "哈基米", 1, 15.0, "fish", 500, 2);
+            Pet cat1 = new Pet(4, "咪咪", 2, 17.0, "fish", 500, 2);
+            Collections.addAll(pets, king, dog, dog1, cat, cat1);
             saveToFile(PET_FILE, pets);
         }
     }

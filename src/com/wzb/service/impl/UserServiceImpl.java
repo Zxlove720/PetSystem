@@ -10,6 +10,7 @@ import com.wzb.service.UserService;
 import com.wzb.utils.captcha.CaptchaUtils;
 import com.wzb.utils.md5.MD5Util;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -52,6 +53,7 @@ public class UserServiceImpl implements UserService {
         int money = Integer.parseInt(sc.nextLine());
         user.addMoney(money);
         System.out.println("充值成功");
+        user.setUpdateTime(LocalDateTime.now());
         System.out.println(user.getUsername() + "的账户余额是" + user.getMoney());
         userDao.saveUpdatedUserById(user);  // 更新后立刻保存
         return true;
@@ -75,6 +77,7 @@ public class UserServiceImpl implements UserService {
                 if (p.equals(password)) {
                     String realPassword = MD5Util.md5(password);
                     user.setPassword(realPassword);
+                    user.setUpdateTime(LocalDateTime.now());
                     userDao.saveUpdatedUserById(user);  // 更新后立刻保存
                     return true;
 
@@ -97,6 +100,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("请输入用户的地址");
         String address = sc.nextLine();
         user.setAddress(address);
+        user.setUpdateTime(LocalDateTime.now());
         System.out.println("用户" + user.getUsername() + "的地址是" + user.getAddress());
         userDao.saveUpdatedUserById(user);  // 更新后立刻保存
         return true;

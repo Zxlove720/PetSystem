@@ -6,6 +6,7 @@ import com.wzb.dao.impl.UserDaoImpl;
 import com.wzb.service.AdminService;
 import com.wzb.utils.md5.MD5Util;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -58,6 +59,7 @@ public class AdminServiceImpl implements AdminService {
                 System.out.println("请输入修改后的用户地址");
                 String address = sc.nextLine();
                 user.setAddress(address);
+                user.setUpdateTime(LocalDateTime.now());
                 userDao.saveUpdatedUserById(user);  // 更新后立刻保存
                 return true;
             }
