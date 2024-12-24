@@ -48,6 +48,9 @@ public class ShopServiceImpl implements ShopService {
         Integer id = Integer.parseInt(sc.nextLine());
         ArrayList<Integer> shopCar = user.getShopCar();
         shopCar.add(id);
+        Pet pet = petService.getById(id);
+        pet.setStatus(false);
+        petDao.saveUpdatedPetById(pet);
         user.setShopCar(shopCar);
         userDao.saveUpdatedUserById(user);
         System.out.println("现在购物车中有：");
