@@ -3,7 +3,7 @@ package com.wzb.utils.menu;
 public class MainMenu {
 
     public static void showMainMenu() {
-        System.out.println("\t\t\t\t\tWelcome to pet system");
+        System.out.println("\t\t\t\t\tWelcome to use pet system");
         System.out.println("\t\t\t************************************");
         System.out.println("\t\t\t\t\t     请输入数字选择：");
         System.out.println("\t\t\t\t\t     1.用户操作");
