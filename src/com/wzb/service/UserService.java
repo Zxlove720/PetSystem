@@ -2,9 +2,6 @@ package com.wzb.service;
 
 import com.wzb.bean.User;
 
-/**
- * 用户服务
- */
 public interface UserService {
     User userLogin();
 
