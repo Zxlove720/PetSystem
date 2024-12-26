@@ -10,22 +10,39 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 管理员服务
+ */
 public class AdminServiceImpl implements AdminService {
 
     private final UserDao userDao = new UserDaoImpl();
     private final Scanner sc = new Scanner(System.in);
 
+    /**
+     * 获得所有用户
+     * @return 所有用户组成的List
+     */
     @Override
     public List<User> showAllUser() {
         return userDao.getAllUser();
     }
 
+    /**
+     * 根据用户id删除用户
+     * @param id 用户id
+     * @return 删除用户的结果
+     */
     @Override
     public boolean deleteUserById(int id) {
         userDao.deleteUserById(id);  // 删除后立刻保存到文件
         return true;
     }
 
+    /**
+     * 更改用户的状态
+     * @param id 用户id
+     * @return 更改状态的结果
+     */
     @Override
     public boolean changeUserStatus(int id) {
         List<User> userList = userDao.getAllUser();
@@ -41,6 +58,11 @@ public class AdminServiceImpl implements AdminService {
         return false;
     }
 
+    /**
+     * 修改用户信息
+     * @param id 用户id
+     * @return 更改用户信息的结果
+     */
     @Override
     public boolean updateAUser(int id) {
         List<User> userList = userDao.getAllUser();
@@ -68,6 +90,11 @@ public class AdminServiceImpl implements AdminService {
         return false;
     }
 
+    /**
+     * 根据用户id获取用户
+     * @param id 用户id
+     * @return 根据id获取的用户
+     */
     @Override
     public User getById(int id) {
         List<User> userList = userDao.getAllUser();
@@ -79,6 +106,10 @@ public class AdminServiceImpl implements AdminService {
         return null;
     }
 
+    /**
+     * 展示管理员账户信息
+     * @param user 登录的用户
+     */
     @Override
     public void showAdmin(User user) {
         System.out.println(user);
