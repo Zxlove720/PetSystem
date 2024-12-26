@@ -10,10 +10,17 @@ import com.wzb.utils.md5.MD5Util;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 用户登录服务
+ */
 public class LoginServiceImpl implements LoginService {
     private final Scanner sc = new Scanner(System.in);
     private final UserDao userDao = new UserDaoImpl();
 
+    /**
+     * 用户登录
+     * @return 返回登录的用户
+     */
     @Override
     public User login() {
         ArrayList<User> userList = userDao.getAllUser();
@@ -51,6 +58,10 @@ public class LoginServiceImpl implements LoginService {
         return null;
     }
 
+    /**
+     * 用户注册
+     * @return 用户是否注册成功
+     */
     public boolean register() {
         System.out.println("Welcome to register");
         //TODO 日后需要检查用户名和密码的合法性
