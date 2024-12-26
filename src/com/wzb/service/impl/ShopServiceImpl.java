@@ -14,6 +14,9 @@ import com.wzb.utils.md5.MD5Util;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 购物服务
+ */
 public class ShopServiceImpl implements ShopService {
 
     private final PetDao petDao = new PetDaoImpl();
@@ -21,6 +24,9 @@ public class ShopServiceImpl implements ShopService {
     private final PetService petService = new PetServiceImpl();
     private final Scanner sc = new Scanner(System.in);
 
+    /**
+     * 展示所有宠物
+     */
     @Override
     public void showAllPet() {
         ArrayList<Pet> petList = petDao.getAllPet();
@@ -31,6 +37,10 @@ public class ShopServiceImpl implements ShopService {
         }
     }
 
+    /**
+     * 展示用户的购物车
+     * @param user 登录的用户
+     */
     @Override
     public void showShopCar(User user) {
         ArrayList<Integer> shopCar = user.getShopCar();
@@ -40,6 +50,11 @@ public class ShopServiceImpl implements ShopService {
         }
     }
 
+    /**
+     * 添加购物车
+     * @param user 登录的用户
+     * @return 添加购物车是否成功
+     */
     @Override
     public boolean addShopCar(User user) {
         System.out.println("目前有的宠物如下：");
@@ -60,10 +75,15 @@ public class ShopServiceImpl implements ShopService {
         return true;
     }
 
+    /**
+     * 支付
+     * @param user 登录的用户
+     * @return 支付结果
+     */
     @Override
     public boolean pay(User user) {
         // 逻辑：
-        // 用户清空购物车，然后算出总金额，和内容，构造一张订单，将订单加入orderList，将订单内容加入petList
+        // 用户清空购物车，然后算出总金额，和内容，构造一张订单，将订单加入orderList，将订单内容加入OrderList
         ArrayList<Integer> shopCar = user.getShopCar();
         int sum = 0;
         for (Integer id : shopCar) {
