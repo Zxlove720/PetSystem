@@ -4,10 +4,13 @@ import com.wzb.bean.User;
 import com.wzb.service.ShopService;
 import com.wzb.service.impl.ShopServiceImpl;
 import com.wzb.utils.menu.shop.ShopMenu;
-import com.wzb.utils.wait.Wait;
+import com.wzb.utils.wait.WaitUtils;
 
 import java.util.Scanner;
 
+/**
+ * 商店功能
+ */
 public class ShopController {
     private static final Scanner sc = new Scanner(System.in);
     private static final ShopService shopService = new ShopServiceImpl();
@@ -46,7 +49,7 @@ public class ShopController {
                     System.out.println("正在返回上一级");
                     Thread.sleep(500);
                     System.out.print("");
-                    Wait.waitMoments();
+                    WaitUtils.waitMoments();
                     System.out.println("成功返回");
                     flag = false;
                     break;

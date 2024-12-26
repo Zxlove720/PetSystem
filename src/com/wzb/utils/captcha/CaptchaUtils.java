@@ -2,6 +2,9 @@ package com.wzb.utils.captcha;
 
 import java.util.Random;
 
+/**
+ * 用于生成指定位数的验证码的工具类
+ */
 public class CaptchaUtils {
     // 定义包含数字和大小写字母的字符集
     private static final String CHAR_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

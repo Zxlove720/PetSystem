@@ -1,5 +1,8 @@
 package com.wzb.utils.menu.user;
 
+/**
+ * 用户登录菜单
+ */
 public class UserLoginMenu {
     public static void showUserLoginMenu() {
         System.out.println("\t\t\t\t\tWelcome to user login system");

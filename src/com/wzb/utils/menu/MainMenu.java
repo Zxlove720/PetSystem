@@ -1,5 +1,8 @@
 package com.wzb.utils.menu;
 
+/**
+ * 主菜单
+ */
 public class MainMenu {
 
     public static void showMainMenu() {

@@ -1,5 +1,8 @@
 package com.wzb.utils.menu.pet;
 
+/**
+ * 宠物操作菜单
+ */
 public class PetMenu {
     public static void showPetMenu() {
         System.out.println("\t\t\t\t\tWelcome to pet system");

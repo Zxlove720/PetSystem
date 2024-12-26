@@ -11,7 +11,7 @@ public interface PetDao {
 
     ArrayList<Pet> getAllPet();
 
-    public void saveUpdatedPetById(Pet updatedPet);
+    void saveUpdatedPetById(Pet updatedPet);
 
-    public boolean deletePetById(int id);
+    boolean deletePetById(int id);
 }

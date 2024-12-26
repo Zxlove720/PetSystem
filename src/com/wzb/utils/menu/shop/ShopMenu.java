@@ -1,5 +1,8 @@
 package com.wzb.utils.menu.shop;
 
+/**
+ * 购物菜单
+ */
 public class ShopMenu {
     public static void showShopMenu() {
         System.out.println("\t\t\t\t\tWelcome to shop system");

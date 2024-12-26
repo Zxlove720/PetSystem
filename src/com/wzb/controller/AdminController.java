@@ -4,11 +4,14 @@ import com.wzb.bean.User;
 import com.wzb.service.AdminService;
 import com.wzb.service.impl.AdminServiceImpl;
 import com.wzb.utils.menu.admin.AdminMenu;
-import com.wzb.utils.wait.Wait;
+import com.wzb.utils.wait.WaitUtils;
 
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 管理员功能
+ */
 public class AdminController {
     private static final Scanner sc = new Scanner(System.in);
     private static final AdminService adminService = new AdminServiceImpl();
@@ -69,7 +72,7 @@ public class AdminController {
                 }
                 case 0: {
                     System.out.print("退出管理员账户" + user.getUsername());
-                    Wait.waitMoments();
+                    WaitUtils.waitMoments();
                     flag = false;
                     break;
                 }

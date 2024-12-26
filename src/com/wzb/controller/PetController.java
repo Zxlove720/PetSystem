@@ -4,11 +4,14 @@ import com.wzb.bean.Pet;
 import com.wzb.service.PetService;
 import com.wzb.service.impl.PetServiceImpl;
 import com.wzb.utils.menu.pet.PetMenu;
-import com.wzb.utils.wait.Wait;
+import com.wzb.utils.wait.WaitUtils;
 
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 宠物管理
+ */
 public class PetController {
     private static final Scanner sc = new Scanner(System.in);
     private static final PetService petService = new PetServiceImpl();
@@ -65,7 +68,7 @@ public class PetController {
                     System.out.println("正在返回上一级");
                     Thread.sleep(500);
                     System.out.print("");
-                    Wait.waitMoments();
+                    WaitUtils.waitMoments();
                     System.out.println("成功返回");
                     flag = false;
                     break;

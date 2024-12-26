@@ -1,5 +1,8 @@
 package com.wzb.utils.menu.admin;
 
+/**
+ * 管理员操作菜单
+ */
 public class AdminMenu {
     public static void showAdminMenu() {
         System.out.println("\t\t\t\t\tWelcome to admin system");

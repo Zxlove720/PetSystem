@@ -1,6 +1,9 @@
 package com.wzb.utils.wait;
 
-public class Wait {
+/**
+ * 用于创建等待动画的工具类
+ */
+public class WaitUtils {
     public static void waitMoments() throws InterruptedException {
         for (int i = 0; i < 6; i++) {
             System.out.print(".");

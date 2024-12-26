@@ -1,5 +1,8 @@
 package com.wzb.utils.menu.user;
 
+/**
+ * 用户操作菜单
+ */
 public class UserMenu {
     public static void showUserMenu() {
         System.out.println("\t\t\t\t\tWelcome to User system");

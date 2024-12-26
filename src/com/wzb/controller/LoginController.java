@@ -4,10 +4,13 @@ import com.wzb.bean.User;
 import com.wzb.service.UserService;
 import com.wzb.service.impl.UserServiceImpl;
 import com.wzb.utils.menu.user.UserLoginMenu;
-import com.wzb.utils.wait.Wait;
+import com.wzb.utils.wait.WaitUtils;
 
 import java.util.Scanner;
 
+/**
+ * 用户登录
+ */
 public class LoginController {
     private static final Scanner sc = new Scanner(System.in);
     private static final UserService userService = new UserServiceImpl();
@@ -47,7 +50,7 @@ public class LoginController {
                     System.out.println("正在返回上一级");
                     Thread.sleep(500);
                     System.out.print("");
-                    Wait.waitMoments();
+                    WaitUtils.waitMoments();
                     System.out.println("成功返回");
                     flag = false;
                     break;

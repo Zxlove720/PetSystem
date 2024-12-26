@@ -1,12 +1,12 @@
 package com.wzb.controller;
 
 import com.wzb.utils.menu.MainMenu;
-import com.wzb.utils.wait.Wait;
+import com.wzb.utils.wait.WaitUtils;
 
 import java.util.Scanner;
 
 /**
- * 主程序
+ * 主系统
  */
 public class MainController {
     private static final Scanner sc = new Scanner(System.in);
@@ -28,7 +28,7 @@ public class MainController {
                     System.out.println("感谢您使用本系统，欢迎再次使用");
                     Thread.sleep(500);
                     System.out.print("系统正在退出");
-                    Wait.waitMoments();
+                    WaitUtils.waitMoments();
                     System.exit(0);
                 }
                 default: {

@@ -42,8 +42,7 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public boolean deletePet(int id) {
-        petDao.deletePetById(id);
-        return true;
+        return petDao.deletePetById(id);
     }
 
     @Override

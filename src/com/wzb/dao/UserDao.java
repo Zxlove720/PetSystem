@@ -5,13 +5,13 @@ import com.wzb.bean.User;
 import java.util.ArrayList;
 
 public interface UserDao {
-    public Integer getNextId();
+    Integer getNextId();
 
     void insert(User user);
 
     ArrayList<User> getAllUser();
 
-    public void saveUpdatedUserById(User updatedUser);
+    void saveUpdatedUserById(User updatedUser);
 
-    public void deleteUserById(int id);
+    void deleteUserById(int id);
 }

@@ -4,10 +4,13 @@ import com.wzb.bean.User;
 import com.wzb.service.UserService;
 import com.wzb.service.impl.UserServiceImpl;
 import com.wzb.utils.menu.user.UserMenu;
-import com.wzb.utils.wait.Wait;
+import com.wzb.utils.wait.WaitUtils;
 
 import java.util.Scanner;
 
+/**
+ * 用户功能
+ */
 public class UserController {
     private static final Scanner sc = new Scanner(System.in);
 
@@ -54,7 +57,7 @@ public class UserController {
                 case 6: {
                     if (userService.deleteMyself(user)) {
                         System.out.print("账户已注销，正在回到登录界面");
-                        Wait.waitMoments();
+                        WaitUtils.waitMoments();
                         flag = false;
                     } else {
                         System.out.println("账户注销失败");
@@ -63,7 +66,7 @@ public class UserController {
                 }
                 case 0: {
                     System.out.print("退出账户" + user.getUsername());
-                    Wait.waitMoments();
+                    WaitUtils.waitMoments();
                     flag = false;
                 }
                 default: {
