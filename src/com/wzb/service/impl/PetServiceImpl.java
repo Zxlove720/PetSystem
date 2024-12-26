@@ -8,15 +8,26 @@ import com.wzb.service.PetService;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 宠物服务类
+ */
 public class PetServiceImpl implements PetService {
     private final PetDao petDao = new PetDaoImpl();
     private final Scanner sc = new Scanner(System.in);
 
+    /**
+     * 得到所有宠物
+     * @return 所有宠物的一个List集合
+     */
     @Override
     public List<Pet> getAllPet() {
         return petDao.getAllPet();
     }
 
+    /**
+     * 新增一个宠物
+     * @return 新增是否成功
+     */
     @Override
     public boolean insertPet() {
         System.out.println("请输入宠物的名字");
@@ -40,11 +51,21 @@ public class PetServiceImpl implements PetService {
         return true;
     }
 
+    /**
+     * 删除一个宠物
+     * @param id 宠物id
+     * @return 删除宠物是否成功
+     */
     @Override
     public boolean deletePet(int id) {
         return petDao.deletePetById(id);
     }
 
+    /**
+     * 修改一个宠物信息
+     * @param id 宠物id
+     * @return 修改宠物信息是否成功
+     */
     @Override
     public boolean updatePet(int id) {
         List<Pet> petList = petDao.getAllPet();
@@ -52,7 +73,6 @@ public class PetServiceImpl implements PetService {
             if (pet.getId().equals(id)) {
                 System.out.println("当前宠物用户信息为：");
                 System.out.println(pet);
-
                 System.out.println("请输入修改后宠物的名字");
                 String name = sc.nextLine();
                 pet.setName(name);
@@ -76,6 +96,11 @@ public class PetServiceImpl implements PetService {
         return false;
     }
 
+    /**
+     * 根据id查找宠物
+     * @param id 宠物id
+     * @return 查找到的对应id的宠物
+     */
     @Override
     public Pet getById(int id) {
         List<Pet> petList = petDao.getAllPet();
