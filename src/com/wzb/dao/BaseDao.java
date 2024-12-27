@@ -15,6 +15,7 @@ public class BaseDao {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(list);
             oos.flush();
+            System.out.println("file save completely wzb 202358234044");
         } catch (IOException e) {
             e.printStackTrace();
         }
