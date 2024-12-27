@@ -13,6 +13,7 @@ public class MainController {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("please use UTF-8 or idea open this project");
+        System.out.println("if you have any question please call 15123044540 or go 'gezhilou' A311 to find wzb");
         while (true) {
             MainMenu.showMainMenu();
             int choice = Integer.parseInt(sc.nextLine());
