@@ -39,6 +39,7 @@ public class User implements Serializable {
 
     // 用户注册凭证：手机号注册
     public User(Integer id, String username, String password, String phoneNumber) {
+        // 从文件中读取，自动生成id
         this.id = id;
         this.username = username;
         this.password = password;

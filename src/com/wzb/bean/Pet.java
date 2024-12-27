@@ -13,7 +13,7 @@ public class Pet implements Serializable {
     // 此状态代表宠物是否已经售出
     private Boolean status;
 
-    // 通过构造器传入 ID，而不是通过静态初始化获取
+    // 通过文件自动生成id
     public Pet(Integer id, String name, Integer age, Double weight, String food, Integer price, Integer brand) {
         this.id = id;
         this.name = name;
