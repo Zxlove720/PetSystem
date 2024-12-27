@@ -25,7 +25,9 @@ public class PetController {
                 case 1: {
                     List<Pet> petList = petService.getAllPet();
                     for (Pet pet : petList) {
-                        System.out.println(pet);
+                        if (pet.getStatus()) {
+                            System.out.println(pet);
+                        }
                     }
                     break;
                 }

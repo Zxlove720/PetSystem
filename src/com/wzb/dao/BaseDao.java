@@ -34,7 +34,6 @@ public class BaseDao {
         } catch (FileNotFoundException e) {
             // 文件不存在，返回空列表
             System.out.println("file is not exist wzb 202358234044");
-            return null;
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
