@@ -12,6 +12,7 @@ public class MainController {
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("please use UTF-8 or idea open this project");
         while (true) {
             MainMenu.showMainMenu();
             int choice = Integer.parseInt(sc.nextLine());
